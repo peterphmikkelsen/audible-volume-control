@@ -1,0 +1,22 @@
+#audio-control-outer-div {
+  width: 100%;
+  padding: 0.5rem 1.5rem 0 1.5rem;
+}
+
+#audio-progress {
+  background-color: #f7991c;
+  width: 100%;
+  height: 2px;
+  position: absolute;
+  pointer-events: none;
+}
+
+#audio-slider {
+  width: 100%;
+}
+
+#volume-icon {
+  float: left;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+}
