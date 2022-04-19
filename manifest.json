@@ -12,7 +12,7 @@
 
   "content_scripts": [
     {
-      "matches": ["https://*.audible.co.uk/webplayer*", "https://*.audible.com/webplayer?*"],
+      "matches": ["https://*.audible.co.uk/webplayer*", "https://*.audible.com/webplayer?*", "https://*.audible.de/webplayer*", "https://*.audible.ca/webplayer*", "https://*.audible.com.au/webplayer*", "https://*.audible.co.jp/webplayer*", "https://*.audible.fr/webplayer*"],
       "js": ["audio-control.js"],
       "css": ["audio-control.css"]
     }
