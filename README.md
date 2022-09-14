@@ -4,6 +4,9 @@ An extension that adds a volume controller to the Audible webplayer.
 ![Mozilla Add-on](https://img.shields.io/amo/users/audible-volume-control?color=purple&label=firefox%20users)
 ![Chrome Web Store](https://img.shields.io/chrome-web-store/users/djbhnpbemmoeenglcdojbkmpdmlcgeoi?color=blue&label=chrome%20users)
 
+![Mozilla Add-on](https://img.shields.io/amo/stars/audible-volume-control?color=purple&label=firefox%20rating)
+![Chrome Web Store](https://img.shields.io/chrome-web-store/stars/djbhnpbemmoeenglcdojbkmpdmlcgeoi?color=blue&label=chrome%20rating)
+
 ## Download
 [![image](https://user-images.githubusercontent.com/31919921/155532905-cc5389f1-d7be-42fb-afc8-caa2f355feeb.png)](https://addons.mozilla.org/en-US/firefox/addon/audible-volume-control/)
 [![chrome](https://user-images.githubusercontent.com/31919921/169718682-953bb1b8-a6c7-4663-8402-91e352a9286b.png)](https://chrome.google.com/webstore/detail/audible-audio-control/djbhnpbemmoeenglcdojbkmpdmlcgeoi)
