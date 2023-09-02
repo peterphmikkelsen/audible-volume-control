@@ -22,6 +22,7 @@ jobs:
           path: audible-volume-control-${{ github.event.pull_request.head.sha }}.zip
           
   release-extension:
+    needs: build-extension
     runs-on: ubuntu-latest
     steps:
       - name: Download artifact
