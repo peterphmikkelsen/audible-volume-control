@@ -1,5 +1,4 @@
 var progress = window.localStorage.getItem("progress");
-console.log(progress)
 
 if (progress === null) {
   progress = "100"
@@ -18,11 +17,25 @@ if (!!window.chrome) {
 }
 
 audioProgress.style.width = `${progress}%`;
-document.getElementsByTagName("audio")[0].volume = parseInt(progress) / 100;
+document.getElementsByTagName("audio")[0].volume = perceptualToAmplitude(progress);
 
 audioSlider.oninput = (event) => {
   const currProgress = event.target.value
   audioProgress.style.width = `${currProgress}%`;
-  document.getElementsByTagName("audio")[0].volume = currProgress / 100;
+  document.getElementsByTagName("audio")[0].volume = perceptualToAmplitude(currProgress);
   window.localStorage.setItem("progress", currProgress)
+}
+
+// https://github.com/discord/perceptual/blob/master/src/index.ts
+function perceptualToAmplitude(perceptual) {
+  if (perceptual === 0) {
+    return 0;
+  }
+  let db;
+  if (perceptual > 100) {
+    db = ((perceptual - 100) / 100) * 6;
+  } else {
+    db = (perceptual / 100) * 50 - 50;
+  }
+  return 1 * Math.pow(10, db / 20);
 }
