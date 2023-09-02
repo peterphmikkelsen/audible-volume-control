@@ -21,7 +21,7 @@ jobs:
           name: audible-volume-control-${{ github.sha }}
           path: audible-volume-control-${{ github.event.pull_request.head.sha }}.zip
           
-  release-extension:
+  release-chrome-extension:
     needs: build-extension
     runs-on: ubuntu-latest
     steps:
@@ -39,10 +39,19 @@ jobs:
           oauth-client-secret: ${{ secrets.G_CLIENT_SECRET }}
           oauth-refresh-token: ${{ secrets.G_REFRESH_TOKEN }}
 
-      - name: Release firefox addon
-        uses: browser-actions/release-firefox-addon@latest
-        with:
-          addon-id: "audible-volume-control"
-          addon-path: "audible-volume-control-${{ github.event.pull_request.head.sha }}.zip"
-          auth-api-issuer: ${{ secrets.F_API_ISSUER }}
-          auth-api-secret: ${{ secrets.F_API_SECRET }}
+  release-firefox-addon:
+     needs: build-extension
+     runs-on: ubuntu-latest
+     steps:
+       - name: Download artifact
+         uses: actions/download-artifact@v3
+         with:
+           name: audible-volume-control-${{ github.sha }}
+
+       - name: Release firefox addon
+         uses: browser-actions/release-firefox-addon@latest
+         with:
+           addon-id: "audible-volume-control"
+           addon-path: "audible-volume-control-${{ github.event.pull_request.head.sha }}.zip"
+           auth-api-issuer: ${{ secrets.F_API_ISSUER }}
+           auth-api-secret: ${{ secrets.F_API_SECRET }}
