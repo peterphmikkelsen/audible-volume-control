@@ -1,0 +1,20 @@
+name: Build Extension
+
+on: [release]
+
+jobs:
+  build-extension:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Build
+        run: |-
+          zip -r audible-volume-control-${{ github.event.pull_request.head.sha }}.zip .
+
+      - name: Archive artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: audible-volume-control-${{ github.sha }}
+          path: audible-volume-control-${{ github.event.pull_request.head.sha }}.zip
