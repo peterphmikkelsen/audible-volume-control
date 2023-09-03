@@ -28,14 +28,15 @@ audioSlider.oninput = (event) => {
 
 // https://github.com/discord/perceptual/blob/master/src/index.ts
 function perceptualToAmplitude(perceptual) {
-  if (perceptual === 0) {
+  if (perceptual == 0) {
     return 0;
   }
+
   let db;
   if (perceptual > 100) {
-    db = ((perceptual - 100) / 100) * 6;
+    db = ((perceptual - 100) / 100) * 6; // 6 is the default boost value
   } else {
     db = (perceptual / 100) * 50 - 50;
   }
-  return 1 * Math.pow(10, db / 20);
+  return Math.round((Math.pow(10, db / 20) + Number.EPSILON) * 1000) / 1000; // Round to three decimal points
 }
