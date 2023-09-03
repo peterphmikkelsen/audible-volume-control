@@ -11,8 +11,34 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Get semantic release info
+        id: semantic_release_info
+        uses: jossef/action-semantic-release-info@v2.1
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+
+      - name: Update manifest.json version
+        uses: jossef/action-set-json-field@v2.1
+        with:
+          file: manifest.json
+          field: version
+          value: ${{ steps.semantic_release_info.outputs.version }}
+      
+      - name: Commit file
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -A
+          git commit -m "action: uplift manifest version to ${{ steps.semantic_release_info.outputs.git_tag }}"
+        
+      - name: Push change
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ github.token }}
+
       - name: Build
         run: |-
+          cat manifest.json
           zip -r audible-volume-control-${{ github.event.pull_request.head.sha }}.zip .
 
       - name: Archive artifact
