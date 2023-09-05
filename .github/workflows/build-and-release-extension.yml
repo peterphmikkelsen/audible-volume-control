@@ -14,13 +14,13 @@ jobs:
       - name: Build
         run: |-
           cat manifest.json
-          zip -r audible-volume-control-${{ github.event.pull_request.head.sha }}.zip .
+          zip -r audible-volume-control-${{ github.event.release.tag_name }}.zip .
 
       - name: Archive artifact
         uses: actions/upload-artifact@v3
         with:
           name: audible-volume-control-${{ github.sha }}
-          path: audible-volume-control-${{ github.event.pull_request.head.sha }}.zip
+          path: audible-volume-control-${{ github.event.release.tag_name }}.zip
           
   release-chrome-extension:
     needs: build-extension
