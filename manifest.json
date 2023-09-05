@@ -19,7 +19,7 @@
       "js": ["audio-control.js"],
       "css": ["audio-control.css"]
     }
-  ]
+  ],
 
   "browser_specific_settings": {
     "gecko": {
