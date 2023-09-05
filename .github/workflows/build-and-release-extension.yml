@@ -56,3 +56,4 @@ jobs:
            addon-path: "audible-volume-control-${{ github.event.pull_request.head.sha }}.zip"
            auth-api-issuer: ${{ secrets.F_API_ISSUER }}
            auth-api-secret: ${{ secrets.F_API_SECRET }}
+           release-note: "https://github.com/peterphmikkelsen/audible-volume-control/releases"
