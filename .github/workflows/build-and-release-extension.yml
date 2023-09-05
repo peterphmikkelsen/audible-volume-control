@@ -4,34 +4,12 @@ on:
   release:
     types: [published]
 
-env:
-  RELEASE_TAG: ${{ github.event.release.tag_name }}
-
 jobs:
   build-extension:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
-      - name: Update manifest.json version
-        uses: jossef/action-set-json-field@v2.1
-        with:
-          file: manifest.json
-          field: version
-          value: ${RELEASE_TAG#v}
-      
-      - name: Commit file
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add -A
-          git commit -m "action: uplift manifest version to ${RELEASE_TAG#v}"
-        
-      - name: Push change
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ github.token }}
 
       - name: Build
         run: |-
