@@ -20,4 +20,10 @@
       "css": ["audio-control.css"]
     }
   ]
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{6416fba2-1151-4e0b-ad65-1c36b3994ef1}"
+    }
+  }
 }
