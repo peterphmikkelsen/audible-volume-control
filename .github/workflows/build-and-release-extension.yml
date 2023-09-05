@@ -35,7 +35,7 @@ jobs:
         uses: browser-actions/release-chrome-extension@latest
         with:
           extension-id: "djbhnpbemmoeenglcdojbkmpdmlcgeoi"
-          extension-path: "audible-volume-control-${{ github.event.pull_request.head.sha }}.zip"
+          extension-path: "audible-volume-control-${{ github.sha }}.zip"
           oauth-client-id: ${{ secrets.G_CLIENT_ID }}
           oauth-client-secret: ${{ secrets.G_CLIENT_SECRET }}
           oauth-refresh-token: ${{ secrets.G_REFRESH_TOKEN }}
@@ -53,7 +53,7 @@ jobs:
          uses: browser-actions/release-firefox-addon@latest
          with:
            addon-id: "audible-volume-control"
-           addon-path: "audible-volume-control-${{ github.event.pull_request.head.sha }}.zip"
+           addon-path: "audible-volume-control-${{ github.sha }}.zip"
            auth-api-issuer: ${{ secrets.F_API_ISSUER }}
            auth-api-secret: ${{ secrets.F_API_SECRET }}
            release-note: "https://github.com/peterphmikkelsen/audible-volume-control/releases"
