@@ -2,7 +2,7 @@
 
   "manifest_version": 3,
   "name": "Audible Audio Control",
-  "version": "1.3.2",
+  "version": "1.3.3",
 
   "description": "Adds a volume controller to the Audible webplayer.",
 
