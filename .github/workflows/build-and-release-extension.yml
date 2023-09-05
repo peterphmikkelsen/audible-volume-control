@@ -14,7 +14,7 @@ jobs:
       - name: Build
         run: |-
           cat manifest.json
-          zip -r audible-volume-control-${{ github.sha }}.zip .
+          zip -r audible-volume-control-${{ github.sha }}.zip . --exclude '*.git*'
 
       - name: Archive artifact
         uses: actions/upload-artifact@v3
