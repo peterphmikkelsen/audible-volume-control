@@ -50,10 +50,9 @@ jobs:
            name: audible-volume-control-${{ github.sha }}
 
        - name: Release firefox addon
-         uses: browser-actions/release-firefox-addon@latest
+         uses: cardinalby/webext-buildtools-firefox-addons-action@v1
          with:
-           addon-id: "audible-volume-control"
-           addon-path: "audible-volume-control-${{ github.sha }}.zip"
-           auth-api-issuer: ${{ secrets.F_API_ISSUER }}
-           auth-api-secret: ${{ secrets.F_API_SECRET }}
-           release-note: "https://github.com/peterphmikkelsen/audible-volume-control/releases"
+           zipFilePath: 'audible-volume-control-${{ github.sha }}.zip'
+           extensionId: '{6416fba2-1151-4e0b-ad65-1c36b3994ef1}'
+           jwtIssuer: ${{ secrets.F_API_ISSUER }}
+           jwtSecret: ${{ secrets.F_API_SECRET }}
