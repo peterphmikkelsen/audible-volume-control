@@ -11,6 +11,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
       
       - name: Get current draft release info
         id: draft_release_info
@@ -44,8 +46,4 @@ jobs:
           git config --local user.name "GitHub Action"
           git add manifest.json
           git commit -m "action: uplift manifest version to version $VERSION"
-        
-      - name: Push change
-        uses: ad-m/github-push-action@master
-        with:
-          branch: ${{ steps.extract_branch.outputs.branch }}
+          git push
