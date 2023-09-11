@@ -1,26 +1,27 @@
 {
-
   "manifest_version": 3,
   "name": "Audible Audio Control",
-  "version": "2.0.0",
-
+  "version": "$VERSION",
   "description": "Adds a volume controller to the Audible webplayer.",
-
   "icons": {
     "48": "icons/volume.png"
   },
-
   "content_scripts": [
     {
-      "matches": [ "*://*/*" ],
+      "matches": [
+        "*://*/*"
+      ],
       "include_globs": [
         "https://www.audible.*/webplayer*"
       ],
-      "js": ["audio-control.js"],
-      "css": ["audio-control.css"]
+      "js": [
+        "audio-control.js"
+      ],
+      "css": [
+        "audio-control.css"
+      ]
     }
   ],
-
   "browser_specific_settings": {
     "gecko": {
       "id": "{6416fba2-1151-4e0b-ad65-1c36b3994ef1}"
