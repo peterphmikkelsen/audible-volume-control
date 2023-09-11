@@ -27,6 +27,10 @@ jobs:
           VERSION=${{ steps.draft_release_info.outputs.tag_name }}
           echo "VERSION=${VERSION#v}" >> $GITHUB_ENV
 
+      - name: Extract branch name
+        id: extract_branch
+        run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
+
       - name: Update manifest.json version
         uses: jossef/action-set-json-field@v2.1
         with:
@@ -38,10 +42,10 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add -A
+          git add manifest.json
           git commit -m "action: uplift manifest version to version $VERSION"
         
       - name: Push change
         uses: ad-m/github-push-action@master
         with:
-          branch: ${{ github.head_ref }}
+          branch: ${{ steps.extract_branch.outputs.branch }}
