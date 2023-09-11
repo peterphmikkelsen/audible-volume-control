@@ -38,12 +38,12 @@ jobs:
         with:
           file: manifest.json
           field: version
-          value: "${VERSION}"
+          value: "$VERSION"
 
       - name: Commit file
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add manifest.json
-          git commit -m "action: uplift manifest version to version ${VERSION}"
+          git commit -m "action: uplift manifest version to version $VERSION"
           git push
