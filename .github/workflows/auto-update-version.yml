@@ -38,7 +38,7 @@ jobs:
         with:
           file: manifest.json
           field: version
-          value: ${VERSION}
+          value: "${VERSION}"
 
       - name: Commit file
         run: |
