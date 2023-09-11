@@ -33,7 +33,7 @@ jobs:
         uses: restackio/update-json-values-action@v1.0.0
         with:
           file: manifest.json
-          values: "{\"version\": \"$VERSION\"}"
+          values: "{\"version\": $VERSION}"
 
       - name: Commit file
         run: |
