@@ -11,28 +11,38 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
       
-      - name: Get semantic release info
-        id: semantic_release_info
-        uses: jossef/action-semantic-release-info@v2.1
+      - name: Get current draft release info
+        id: draft_release_info
+        uses: cardinalby/git-get-release-action@v1
         env:
           GITHUB_TOKEN: ${{ github.token }}
+        with:
+          latest: true
+          draft: true
+
+      - name: Save version
+        id: version
+        run: | 
+          VERSION=${{ steps.draft_release_info.outputs.tag_name }}
+          echo "version=${VERSION#v}" >> $GITHUB_OUTPUT
+
+      - name: Check version
+        run: echo "${{ steps.version.outputs.version }}"
 
       - name: Update manifest.json version
         uses: jossef/action-set-json-field@v2.1
         with:
           file: manifest.json
           field: version
-          value: ${{ steps.semantic_release_info.outputs.version }}
+          value: ${{ steps.version.outputs.version }}
 
       - name: Commit file
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add -A
-          git commit -m "action: uplift manifest version to ${{ steps.semantic_release_info.outputs.git_tag }}"
-        
-      - name: Push change
-        uses: ad-m/github-push-action@master
-        with:
-            github_token: ${{ github.token }}
+          git add manifest.json
+          git commit -m "action: uplift manifest version to version ${{ steps.version.outputs.version }}"
+          git push
