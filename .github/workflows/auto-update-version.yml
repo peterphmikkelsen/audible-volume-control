@@ -23,7 +23,7 @@ jobs:
         with:
           file: manifest.json
           field: version
-          value: ${{ steps.semantic_release_info.outputs.version }}
+          value: ${{ steps.semantic_release_info.outputs.git_tag }#v}
 
       - name: Commit file
         run: |
