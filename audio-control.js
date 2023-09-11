@@ -1,3 +1,5 @@
+console.log("Audible Volume Control - Active! Slide the volume controller and hear the magic happen!")
+
 var progress = window.localStorage.getItem("progress");
 
 if (progress === null) {
