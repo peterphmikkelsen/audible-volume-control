@@ -17,11 +17,11 @@ jobs:
           zip -r audible-volume-control-${{ github.sha }}.zip . --exclude '*.git*'
 
       - name: Archive artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: audible-volume-control-${{ github.sha }}
           path: audible-volume-control-${{ github.sha }}.zip
-          
+
   release-chrome-extension:
     needs: build-extension
     runs-on: ubuntu-latest
