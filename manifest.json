@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Audible Audio Control",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Adds a volume controller to the Audible webplayer.",
   "icons": {
     "48": "icons/volume.png"
