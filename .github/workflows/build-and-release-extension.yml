@@ -27,7 +27,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: audible-volume-control-${{ github.sha }}
 
@@ -45,7 +45,7 @@ jobs:
      runs-on: ubuntu-latest
      steps:
        - name: Download artifact
-         uses: actions/download-artifact@v3
+         uses: actions/download-artifact@v4
          with:
            name: audible-volume-control-${{ github.sha }}
 
