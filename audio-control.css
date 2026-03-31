@@ -1,22 +1,60 @@
 #audio-control-outer-div {
-  width: 100%;
-  padding: 4rem 1.5rem 0 1.5rem;
+  width: 95%;
+  padding: 1.5rem 1.5rem 0 1.5rem;
 }
 
 #audio-progress {
-  background-color: #f7991c;
+  background-color: #ffa000;
   width: 100%;
-  height: 2px;
+  height: 3px;
   position: absolute;
+  left: 0;
+  border-radius: 0;
   pointer-events: none;
+  z-index: 4;
+  transition: box-shadow 0.1s ease-in-out;
+}
+
+#slider-and-progress {
+  position: relative;
 }
 
 #audio-slider {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   width: 100%;
+  background: transparent;
+  position: relative;
+  z-index: 3;
+}
+
+#audio-slider::-webkit-slider-thumb {
+  background-color: #ffa000;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  z-index: 4;
+  margin-top: -4.5px;
+}
+
+#audio-slider::-webkit-slider-runnable-track {
+  height: 3px;
+  background: #ddd;
+  border-radius: 0;
+  transition: box-shadow 0.1s ease-in-out;
 }
 
 #volume-icon {
   float: left;
   padding-right: 1rem;
   padding-top: 0.5rem;
+}
+
+#slider-and-progress:hover #audio-slider::-webkit-slider-runnable-track {
+  box-shadow: 0 2px 0 #ddd, 0 -2px 0 #ddd;
+}
+
+#slider-and-progress:hover #audio-progress {
+  box-shadow: 0 2px 0 #ffa000, 0 -2px 0 #ffa000;
 }
