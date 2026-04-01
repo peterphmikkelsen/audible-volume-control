@@ -45,6 +45,22 @@
   transition: box-shadow 0.1s ease-in-out;
 }
 
+#audio-slider::-moz-range-thumb {
+  background-color: #ffa000;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  z-index: 4;
+  margin-top: -4.5px;
+}
+
+#audio-slider::-moz-range-track {
+  height: 3px;
+  background: #ddd;
+  border-radius: 0;
+  transition: box-shadow 0.1s ease-in-out;
+}
+
 #volume-icon {
   float: left;
   padding-right: 1rem;
@@ -52,6 +68,10 @@
 }
 
 #slider-and-progress:hover #audio-slider::-webkit-slider-runnable-track {
+  box-shadow: 0 2px 0 #ddd, 0 -2px 0 #ddd;
+}
+
+#slider-and-progress:hover #audio-slider::-moz-range-track {
   box-shadow: 0 2px 0 #ddd, 0 -2px 0 #ddd;
 }
 
