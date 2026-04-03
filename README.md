@@ -19,6 +19,4 @@ Audible Volume Control is an extension that was created because I personally was
 At the time of writing this, Audible has just announced that they are discontinuing their native Audible app for Windows (it will probably be replaced with the Android version in Windows 11). Soon, the only option will be the web-player.
 
 ## How it looks
-![image](https://user-images.githubusercontent.com/31919921/155532602-ceaca3b7-2694-446e-be94-2a256cfd1efa.png)
-
-
+<img width="415" height="299" alt="image" src="https://github.com/user-attachments/assets/f9cc55ec-a5f2-4100-8225-5d03b2ad8b76" />
