@@ -7,7 +7,7 @@ window.onload = () => {
 
 async function injectVolumeSlider() {
   const progress = window.localStorage.getItem("progress") || "100";
-  const bookmarkMenu = document.querySelector("[class*='_playerMenu']");
+  const bookmarkMenu = await waitForElement("[class*='_playerMenu']");
 
   // Check if we already injected it to avoid duplicates
   if (document.getElementById("audio-control-outer-div")) return;
@@ -37,6 +37,27 @@ async function injectVolumeSlider() {
     audioSlider.addEventListener(evt, stopPropagation, { capture: true, passive: false });
   });
 }
+
+function waitForElement(selector) {
+  return new Promise(resolve => {
+    if (document.querySelector(selector)) {
+      return resolve(document.querySelector(selector));
+    }
+
+    const observer = new MutationObserver(_ => {
+      if (document.querySelector(selector)) {
+        observer.disconnect();
+        resolve(document.querySelector(selector));
+      }
+    });
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+  });
+}
+
 
 function stopPropagation(event) {
   event.stopPropagation();
