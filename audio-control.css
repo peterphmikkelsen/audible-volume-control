@@ -1,21 +1,39 @@
 #audio-control-outer-div {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+  padding: 1.5rem 1.5rem 0;
   width: 95%;
-  padding: 1.5rem 1.5rem 0 1.5rem;
 }
 
 #audio-progress {
   background-color: #ffa000;
-  width: 100%;
-  height: 3px;
-  position: absolute;
-  left: 0;
   border-radius: 0;
+  height: 3px;
+  left: 0;
   pointer-events: none;
-  z-index: 4;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   transition: box-shadow 0.1s ease-in-out;
+  z-index: 4;
+}
+
+#audio-unity-marker {
+  background: #75520c;
+  height: 9px;
+  left: 50%;
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  z-index: 5;
 }
 
 #slider-and-progress {
+  flex: 1 1 auto;
+  min-width: 0;
   position: relative;
 }
 
@@ -23,48 +41,60 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  width: 100%;
   background: transparent;
+  display: block;
+  margin: 0;
   position: relative;
+  width: 100%;
   z-index: 3;
 }
 
 #audio-slider::-webkit-slider-thumb {
-  background-color: #ffa000;
+  -webkit-appearance: none;
   appearance: none;
-  width: 12px;
+  background-color: #ffa000;
   height: 12px;
-  z-index: 4;
   margin-top: -4.5px;
+  width: 12px;
+  z-index: 4;
 }
 
 #audio-slider::-webkit-slider-runnable-track {
-  height: 3px;
   background: #ddd;
   border-radius: 0;
+  height: 3px;
   transition: box-shadow 0.1s ease-in-out;
 }
 
 #audio-slider::-moz-range-thumb {
-  background-color: #ffa000;
+  -moz-appearance: none;
   appearance: none;
-  width: 12px;
+  background-color: #ffa000;
+  border: 0;
+  border-radius: 0;
   height: 12px;
+  width: 12px;
   z-index: 4;
-  margin-top: -4.5px;
 }
 
 #audio-slider::-moz-range-track {
-  height: 3px;
   background: #ddd;
   border-radius: 0;
+  height: 3px;
   transition: box-shadow 0.1s ease-in-out;
 }
 
 #volume-icon {
-  float: left;
-  padding-right: 1rem;
-  padding-top: 0.5rem;
+  display: flex;
+  flex: 0 0 auto;
+}
+
+#audio-volume-value {
+  color: #343434;
+  flex: 0 0 3.5rem;
+  font-size: 0.875rem;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
 }
 
 #slider-and-progress:hover #audio-slider::-webkit-slider-runnable-track {

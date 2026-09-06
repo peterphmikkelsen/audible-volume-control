@@ -1,5 +1,5 @@
 # ![image](https://user-images.githubusercontent.com/31919921/155547912-5a57d7c5-5c4d-46a0-9e24-51b036db9bbb.png) Audible Volume Control
-An extension that adds a volume controller to the Audible webplayer.
+An extension that adds a 0–200% volume controller to the Audible webplayer.
 
 ![Mozilla Add-on](https://img.shields.io/amo/users/audible-volume-control?color=purple&label=firefox%20users)
 ![Mozilla Add-on](https://img.shields.io/amo/stars/audible-volume-control?color=purple&label=firefox%20rating)
@@ -12,6 +12,16 @@ An extension that adds a volume controller to the Audible webplayer.
 [![chrome](https://user-images.githubusercontent.com/31919921/169718682-953bb1b8-a6c7-4663-8402-91e352a9286b.png)](https://chrome.google.com/webstore/detail/audible-audio-control/djbhnpbemmoeenglcdojbkmpdmlcgeoi)
 
 
+
+## Volume boost
+
+The slider supports 0–200% volume, with a percentage readout and a marker at 100%.
+Levels above 100% use Web Audio for up to +6 dB of gain, with compression to reduce
+clipping. Levels up to 100% retain the existing volume curve and saved setting.
+
+Boosting depends on the browser being able to route Audible playback through Web
+Audio. Cross-origin or protected media may not support it. Compression reduces
+peaks but does not guarantee distortion-free playback.
 
 ## Why?
 Audible Volume Control is an extension that was created because I personally was tired of not being able to control the volume when using the Audible web-player.
